@@ -15,7 +15,12 @@
                 <div class="form-group">
                     <label class="control-label col-xs-12 col-sm-3 col-md-3" for="calendar_image">#i18n{calendar.create_calendar.image} *</label>
                     <div class="col-xs-12 col-sm-8 col-md-6">
-						<@radioImageList name="calendar_image" default_value="" items=dots_list inline=1 />
+                        <#list dots_list as item>
+                            <label for="calendar_image" class="radio-inline">
+                                <input <#if ""="${item.code}">checked="checked"</#if> class="radio" type="radio" name="calendar_image" value="${item.code}">
+                                <img src="${item.name}" alt="${item.name}" title="${item.name}">
+                            </label>
+                        </#list>
                     </div>
                 </div>
                 <div class="form-group">
